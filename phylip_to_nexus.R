@@ -71,7 +71,7 @@ if( dir.exists(targetDirectory) ){
 for( iF in 1:length(myFiles) ){
     print(paste0("Working on file ", iF," of ",length(myFiles),": ",myFiles[iF]))
     myData = read.dna(paste0(directory,myFiles[iF]), format="sequential")
-    newFilename = paste0(targetDirectory, sub(extensionPattern, ".nexus", myFiles[iF]))
+    newFilename = paste0(targetDirectory, sub(extensionPattern, ".nex", myFiles[iF]))
     write.nexus.data(myData, newFilename)
 }
 
