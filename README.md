@@ -12,7 +12,7 @@ This program requires both R and ape to be installed on the computer.
 
 To execute from the command line type the following:
 
-    RScript phylip_to_nexus.R ../<i>datadirectory</i>
+    RScript phylip_to_nexus.R ../datadirectory
 
 There are two additional parameters that can be used:
 <table style="width:100%">
