@@ -25,6 +25,11 @@ There are two additional parameters that can be used:
   This argument is used alone and allows the program to <b>empty</b> and overwrite the <i>nexus/</i> directory if it pre-exists.
   </td>
  </tr>
+ <tr><td>-u</td>
+  <td>
+  This argument is used alone and directs the program to output lines with unix type line endings.
+  </td>
+ </tr>
 </table>
 
 An example of the command using the extra parameters:
