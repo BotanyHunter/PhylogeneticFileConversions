@@ -59,7 +59,7 @@ if( dir.exists(targetDirectory) ){
     overwriteArgument = which(args=="-w")
     if( length(overwriteArgument) > 0 ){
       #remove all files from directory
-      file.remove(Sys.glob(paste0(targetDirectory,"*.*")))
+      res = file.remove(Sys.glob(paste0(targetDirectory,"*.*")))
     } else {
       stop(paste0("nexus subdirectory already exists in ",directory,". Set overwrite flag (-w) to overwrite"))
     }
@@ -74,6 +74,26 @@ for( iF in 1:length(myFiles) ){
     newFilename = paste0(targetDirectory, sub(extensionPattern, ".nex", myFiles[iF]))
     write.nexus.data(myData, newFilename)
 }
+
+#Check if user wants to force to UNIX type line feeds
+libArgument = which(args=="-u")
+if( length(libArgument)>0 ) {
+    for( iF in 1:length(myFiles) ){
+        newFilename = paste0(targetDirectory, sub(extensionPattern, ".nex", myFiles[iF]))
+        print(paste0("Checking CRLF on file ", iF," of ",length(myFiles),": ",newFilename))
+        input = file(newFilename, open = "r")
+        output = file(paste0(newFilename,"x"), open="wb")
+        while (length(oneLine <- readLines(input, n = 1, warn = FALSE)) > 0) {
+            writeLines(oneLine, output, sep="\n")
+        } 
+
+        close(output)
+        close(input)
+        file.remove(newFilename)
+        file.rename(paste0(newFilename,"x"), newFilename)
+    }
+}
+  
 
 print("Finished")
 
