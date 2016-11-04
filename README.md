@@ -34,7 +34,7 @@ There are two additional parameters that can be used:
 
 An example of the command using the extra parameters:
 
-    RScript phylip_to_nexus.R ../data/ -l "c:/Users/userName/Documents/R/win-library/3.2" -w
+    RScript phylip_to_nexus.R ../data/ -l "c:/Users/userName/Documents/R/win-library/3.2" -w -u
 
 
   
