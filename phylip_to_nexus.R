@@ -43,7 +43,7 @@ loadLibrary = tryCatch({
 if( loadLibrary == FALSE ) stop("library ape not installed. Execution cannot continue.")
 
 # Get a list of files in the directory
-extensionPattern = "\\.phylip$"
+extensionPattern = "\\.(phylip|phy)$"
 filenamePattern = paste0(".*",extensionPattern)
 myFiles = list.files(path=directory, pattern=filenamePattern)
 
