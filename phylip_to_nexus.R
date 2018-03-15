@@ -71,8 +71,10 @@ if( dir.exists(targetDirectory) ){
 for( iF in 1:length(myFiles) ){
     print(paste0("Working on file ", iF," of ",length(myFiles),": ",myFiles[iF]))
     myData = read.dna(paste0(directory,myFiles[iF]), format="sequential")
+    print(paste0("- data in ", ifelse(is.matrix(myData),"matrix","list")," format with ",
+                ifelse(is.matrix(myData),nrow(myData),length(myData))," taxa."))
     newFilename = paste0(targetDirectory, sub(extensionPattern, ".nex", myFiles[iF]))
-    write.nexus.data(myData, newFilename)
+    write.nexus.data(as.list(myData), newFilename, interleaved=FALSE)
 }
 
 #Check if user wants to force to UNIX type line feeds
