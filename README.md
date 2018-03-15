@@ -18,7 +18,8 @@ There are two additional parameters that can be used:
 <table style="width:100%">
 <tr><td>-l <i>RLibraryDirectory</i></td>
   <td>If RScript does not automatically find the directory where ape is installed, this parameter can be
-  used to force R to look at an alternative directory.</td>
+  used to force R to look at an alternative directory.  Unfortunately, version incompatibility seems to be 
+      a frequent source of errors.</td>
  <tr>
  <tr><td>-w</td>
   <td>
